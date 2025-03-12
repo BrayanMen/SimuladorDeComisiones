@@ -1,0 +1,37 @@
+{
+    "NAVEGACION":[
+        {"id": "summary", "label": "Resumen", "icon": "Target"},
+        {"id": "simulator", "label": "Simulación", "icon": "TrendingUp"},
+        {"id": "planification", "label": "Planificacion","icon": "Calendar"}
+    ],
+    "PRODUCTOS":[
+        {"id": "A", "nombre": "Producto A", "precio": 10000},
+        {"id": "B", "nombre": "Producto B", "precio": 20000},
+        {"id": "C", "nombre": "Producto C", "precio": 30000},
+        {"id": "D", "nombre": "Producto D", "precio": 40000},
+        {"id": "E", "nombre": "Producto E", "precio": 50000},
+        {"id": "F", "nombre": "Producto F", "precio": 60000},
+        {"id": "G", "nombre": "Producto G", "precio": 70000},
+        {"id": "H", "nombre": "Producto H", "precio": 80000}
+    ],
+    "MESES":[
+        {"id": 1, "nombre": "Enero"},
+        {"id": 2, "nombre": "Febrero"},
+        {"id": 3, "nombre": "Marzo"},
+        {"id": 4, "nombre": "Abril"},
+        {"id": 5, "nombre": "Mayo"},
+        {"id": 6, "nombre": "Junio"},
+        {"id": 7, "nombre": "Julio"},
+        {"id": 8, "nombre": "Agosto"},
+        {"id": 9, "nombre": "Septiembre"},
+        {"id": 10, "nombre": "Octubre"},
+        {"id": 11, "nombre": "Noviembre"},
+        {"id": 12, "nombre": "Diciembre"}
+    ],
+    "DATA_USUARIO_INICIAL":{
+        "nombre": "Martin Rodriguez",
+        "mes": "Febrero",
+        "ticketPromedio": 1100,
+        "valorUSD": 1055
+    }
+}
