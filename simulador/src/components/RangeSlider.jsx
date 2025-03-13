@@ -1,17 +1,17 @@
 import React from 'react'
 
-export default function RangeSlider({ min, max, paso, valor, onChange, show, unidad = "" }) {
+export default function RangeSlider({ min, max, step, valor, onChange, show, unidad = "" }) {
     return (
-        <div className='relative'>
+        <div className='relative m-4 text-gray-700'>
             <input
                 type="range"
                 min={min}
                 max={max}
-                step={paso}
+                step={step}
                 value={valor}
                 onChange={onChange}
-                className='w-full h-3 bg-gray-200 rounded-lg appearance-none cursor-pointer' />
-            {show && <div className='text-center font-bold text-red-600 mt-1 text-sm'>
+                className='w-full h-3 bg-gray-300 rounded-lg  appearance-none cursor-pointer' />
+            {show && <div className='text-center font-bold text-gray-700 mt-1 text-sm'>
                 {valor}{unidad}
             </div>
             }
