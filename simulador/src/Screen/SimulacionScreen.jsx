@@ -50,7 +50,7 @@ export default function SimulacionScreen({
                     <div className="text-lg font-bold border px-2 rounded-xl bg-gray-200 text-green-600">${Math.round(comisionActual).toLocaleString()}</div>
                 </div>
             </Section>
-            <Section title='Comision' icon={<DollarSign size={20} />}>
+            <Section title='Comisiones Esperadas' icon={<DollarSign size={20} />}>
                 <div className='mx-4 mt-4'>
                     <div className='flex justify-between text-black'>
                         <span className='font-medium'>Progreso </span>
