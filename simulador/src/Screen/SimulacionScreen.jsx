@@ -65,8 +65,14 @@ export default function SimulacionScreen({
                     <span className="text-lg font-bold text-green-700">{formatoDeMoneda(comisionActual)}</span>
                 </div>
             </Section>
-            <Section title='¿Cuanto quiero ganar este mes en mi Venta Personal' icon={<TargetIcon size={20}/>}>
-            <InputComp label='Meta de Venta' valor={metaGanancia} onChange={(event)=>{setMetaGanancia(parseInt(event.target.value))}} type='number'/>
+            <Section title='¿Cuanto quiero ganar este mes en mi Venta Personal?' icon={<TargetIcon size={20}/>}>
+            <InputComp label='Meta de Ganancia' valor={metaGanancia} onChange={(event)=>{setMetaGanancia(parseInt(event.target.value))}} type='number'/>
+            <InputComp label="Ventas Actuales del Mes (Simulacion)" valor={ventasActuales} onChange={(event) => setVentasActuales(parseInt(event.target.value))} type="number" />
+            <div className="text-center p-3 bg-blue-50 rounded-lg mb-2">
+          <p className="text-sm text-gray-600">Estás actualmente al</p>
+          <p className="text-2xl font-bold text-green-700">{porcentajeDisplay}%</p>
+          <p className="text-sm text-gray-600">de tu meta</p>
+        </div>
             <div className='text-gray-800 grid grid-cols-3'>
             {[{ label: "Tengo que Vender:", value: `$ ${tengoQueVender.toLocaleString()}` }, 
             { label: "Volumen en carrera de:", value: `${volumenCarrera} USD` }, 

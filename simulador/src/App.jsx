@@ -11,7 +11,7 @@ function App() {
   const [userData, setUserData] = useState(DATA_USUARIO_INICIAL);
   const [activeNav, setActiveNav] = useState('summary');
   const [nivelAct, setNivelAct] = useState(15)
-  const [productoSelec, setProductoSelec] = useState(PRODUCTOS[2].nombre);
+  const [productoSelec, setProductoSelec] = useState(PRODUCTOS[0].nombre);
   const [metaGanancia, setMetaGanancia] = useState(900000);
   const [ventasAct, setVentasAct] = useState(1000000);
   const [showAlert, setShowAlert] = useState(false);
