@@ -3,6 +3,7 @@ import Header from './components/Header'
 import { LoadingSpinner } from './components/LoadingSpinner';
 import Navigation from './components/Navigation';
 import SimulacionScreen from './Screen/SimulacionScreen';
+import ResumenScreen from './Screen/ResumenScreen';
 import { DATA_USUARIO_INICIAL, PRODUCTOS } from './constants/dataInicial';
 import { calcularComision } from './Utils/utils';
 import VariablesUsuario from './components/VariablesUsuario';
@@ -12,8 +13,10 @@ function App() {
   const [activeNav, setActiveNav] = useState('summary');
   const [nivelAct, setNivelAct] = useState(15)
   const [productoSelec, setProductoSelec] = useState(PRODUCTOS[0].nombre);
-  const [metaGanancia, setMetaGanancia] = useState(900000);
+  const [metaGanancia, setMetaGanancia] = useState(DATA_USUARIO_INICIAL.ingresoEsperado);
   const [ventasAct, setVentasAct] = useState(1000000);
+  const [presentacionesPorMes, setPresentacionesPorMes] = useState(22);
+  const [tasaCierre, setTasaCierre] = useState(0.3);
   const [showAlert, setShowAlert] = useState(false);
   const [loading, setLoading] = useState(false);
 
@@ -30,9 +33,20 @@ function App() {
     )
   );
   const volumenCarrera = Math.round(tengoQueVender / userData.valorUSD);
-  const totalVentasMes = Math.round(volumenCarrera / userData.ticketPromedio * 10) / 10;
+  const totalVentasMes = Math.round(volumenCarrera / userData.ticketPromedio);
   const porcentajeFinal = Math.min((ventasAct / tengoQueVender) * 100, 100)
   const porcentajeDisplay = ((ventasAct / tengoQueVender) * 100).toFixed(2);
+  const presentacionesNecesarias = Math.round(totalVentasMes / tasaCierre);
+  const nuevosProspectos = Math.round(totalVentasMes * 6);
+  const presentacionesPorSemana = Math.round(presentacionesNecesarias / 4)+1;
+  const distribucionPorSemana = [
+    Math.ceil(presentacionesNecesarias * 0.4),
+    Math.ceil(presentacionesNecesarias * 0.25),
+    Math.ceil(presentacionesNecesarias * 0.15),
+    Math.ceil(presentacionesNecesarias * 0.1),
+    Math.ceil(presentacionesNecesarias * 0.1),
+  ];
+
 
   const showAlertApproved = () => {
     setShowAlert(true);
@@ -60,11 +74,21 @@ function App() {
             porcentajeFinal={porcentajeFinal}
             porcentajeDisplay={porcentajeDisplay}
             showAlertApproved={showAlertApproved}
-            productoActual={productoAct}            
+            productoActual={productoAct}
             comisionActual={comisionAct}
             tengoQueVender={tengoQueVender}
             volumenCarrera={volumenCarrera}
             totalVentasMes={totalVentasMes}
+          />}
+          {activeNav === "summary" && <ResumenScreen
+            metaGanancia={metaGanancia}
+            tengoQueVender={tengoQueVender}
+            totalVentasMes={totalVentasMes}
+            presentacionesNecesarias={presentacionesNecesarias}
+            presentacionesPorSemana={presentacionesPorSemana}
+            nuevosProspectos={nuevosProspectos}
+            comisionActual={comisionAct}
+            nivelActual={nivelAct}
           />}
         </Suspense>
       </main>

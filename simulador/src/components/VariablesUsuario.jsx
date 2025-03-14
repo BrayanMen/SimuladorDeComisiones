@@ -28,7 +28,7 @@ export default function VariablesUsuario({userData,setUserData}) {
                         valor={userData.ticketPromedio}
                         onChange={(event) => handlerUserData('ticketPromedio', event.target.value)} />
                     <InputComp
-                        label="Valor USD"
+                        label="Valor USD ( Valor de cambio )"
                         valor={userData.valorUSD}
                         onChange={(event) => handlerUserData('valorUSD', event.target.value)} />
                 </div>

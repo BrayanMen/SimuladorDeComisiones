@@ -25,6 +25,10 @@ export default function SimulacionScreen({
     return (
         <div className="space-y-4 pb-6">
             <Section title="Comisión Actual" icon={<SlidersHorizontal size={16} />}>
+                <div className='flex flex-col text-center justify-center'>
+                    <SelectComp label="Simulador de Venta Personal" valor={productoSelec} onChange={(e) => setProductoSelec(e.target.value)} opciones={PRODUCTOS.map(p => p.nombre)} />
+                    <span className='mb-2 justify-center text-gray-500 font-semibold'>{productoActual.precio}</span>
+                </div>
                 <RangeSlider
                     min={10}
                     max={40}
@@ -33,10 +37,6 @@ export default function SimulacionScreen({
                     onChange={(e) => setNivelAct(parseInt(e.target.value))}
                     show={true}
                     unidad="%" />
-                <div className='flex flex-col text-center justify-center'>
-                    <SelectComp label="Simulador de Venta Personal" valor={productoSelec} onChange={(e) => setProductoSelec(e.target.value)} opciones={PRODUCTOS.map(p => p.nombre)} />
-                    <span className='mb-2 justify-center text-gray-500 font-semibold'>{productoActual.precio}</span>
-                </div>
                 <div className="grid grid-cols-5 gap-1 mx-2 mb-3">
                     {[10, 15, 20, 35, 40].map((nivel, i) => (
                         <div key={i} className={`border bg-gray-200 rounded-md p-1 text-center ${nivel === nivelAct ? 'bg-blue-50 border-green-900' : ''}`}>
@@ -73,12 +73,12 @@ export default function SimulacionScreen({
           <p className="text-2xl font-bold text-green-700">{porcentajeDisplay}%</p>
           <p className="text-sm text-gray-600">de tu meta</p>
         </div>
-            <div className='text-gray-800 grid grid-cols-3'>
+            <div className='text-gray-700 grid grid-cols-3'>
             {[{ label: "Tengo que Vender:", value: `$ ${tengoQueVender.toLocaleString()}` }, 
             { label: "Volumen en carrera de:", value: `${volumenCarrera} USD` }, 
-            { label: "Total de Ventas en el Mes", value: Math.round(totalVentasMes) }]
+            { label: "Ventas en el Mes", value: Math.round(totalVentasMes) }]
             .map((item, i) =>(
-                <div key={i} className='flex flex-col bg-gray-300 rounded-2xl m-2 p-2 text-center '>                    
+                <div key={i} className='flex flex-col shadow-xl mb-6 bg-gray-200 rounded-sm m-2 p-2 text-center '>                    
                     <span className='font-bold text-lg text-gray-800'>{item.label}</span>
                     <span className='text-green-700 text-xl font-bold'>{item.value}</span>                    
                 </div>

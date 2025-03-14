@@ -34,9 +34,9 @@ export const MESES = [
 export const DATA_USUARIO_INICIAL = {
     nombre: "Martin Rodriguez",
     mes: "Febrero",
-    ticketPromedio: 900,
+    ticketPromedio: 1500,
     valorUSD: 1055,
-    ingresoEsperado: 900000,
+    ingresoEsperado: 800000,
 };
 
 export const TASAS_DE_CIERRE = {
