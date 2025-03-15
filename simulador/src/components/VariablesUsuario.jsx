@@ -5,13 +5,13 @@ import InputComp from './InputComp';
 import SelectComp from './SelectComp';
 import { Users } from 'lucide-react';
 
-export default function VariablesUsuario({userData,setUserData}) {
+export default function VariablesUsuario({ userData, setUserData }) {
     const handlerUserData = (campo, valor) => {
         setUserData({ ...userData, [campo]: valor })
     };
-  return (
-    <div className="mx-4 sm:my-2">
-            <Section title="Variables de Usuario" icon={<Users size={20} />}>                
+    return (
+        <div className="mx-4 sm:my-2">
+            <Section title="Variables de Usuario" icon={<Users size={20} />}>
                 <div className='my-1 grid grid-cols-2'>
                     <InputComp
                         label="Nombre de Socio/a"
@@ -34,5 +34,5 @@ export default function VariablesUsuario({userData,setUserData}) {
                 </div>
             </Section>
         </div>
-  )
+    )
 }

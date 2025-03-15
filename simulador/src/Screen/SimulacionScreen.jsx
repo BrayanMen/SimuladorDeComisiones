@@ -1,11 +1,12 @@
 import React from 'react'
 import Section from '../components/Section.jsx'
-import { DollarSign, DollarSignIcon, SlidersHorizontal, TargetIcon } from 'lucide-react';
+import { DollarSign, DownloadCloudIcon, SlidersHorizontal, TargetIcon } from 'lucide-react';
 import InputComp from '../components/InputComp.jsx';
 import SelectComp from '../components/SelectComp.jsx';
 import { calcularComision, formatoDeMoneda } from '../Utils/utils.js';
-import { COMISIONES, PRODUCTOS } from '../constants/dataInicial.js';
+import { PRODUCTOS } from '../constants/dataInicial.js';
 import RangeSlider from '../components/RangeSlider.jsx';
+import Buttom from '../components/Buttom.jsx';
 
 export default function SimulacionScreen({
     nivelAct, setNivelAct,
@@ -65,26 +66,30 @@ export default function SimulacionScreen({
                     <span className="text-lg font-bold text-green-700">{formatoDeMoneda(comisionActual)}</span>
                 </div>
             </Section>
-            <Section title='¿Cuanto quiero ganar este mes en mi Venta Personal?' icon={<TargetIcon size={20}/>}>
-            <InputComp label='Meta de Ganancia' valor={metaGanancia} onChange={(event)=>{setMetaGanancia(parseInt(event.target.value))}} type='number'/>
-            <InputComp label="Ventas Actuales del Mes (Simulacion)" valor={ventasActuales} onChange={(event) => setVentasActuales(parseInt(event.target.value))} type="number" />
-            <div className="text-center p-3 bg-blue-50 rounded-lg mb-2">
-          <p className="text-sm text-gray-600">Estás actualmente al</p>
-          <p className="text-2xl font-bold text-green-700">{porcentajeDisplay}%</p>
-          <p className="text-sm text-gray-600">de tu meta</p>
-        </div>
-            <div className='text-gray-700 grid grid-cols-3'>
-            {[{ label: "Tengo que Vender:", value: `$ ${tengoQueVender.toLocaleString()}` }, 
-            { label: "Volumen en carrera de:", value: `${volumenCarrera} USD` }, 
-            { label: "Ventas en el Mes", value: Math.round(totalVentasMes) }]
-            .map((item, i) =>(
-                <div key={i} className='flex flex-col shadow-xl mb-6 bg-gray-200 rounded-sm m-2 p-2 text-center '>                    
-                    <span className='font-bold text-lg text-gray-800'>{item.label}</span>
-                    <span className='text-green-700 text-xl font-bold'>{item.value}</span>                    
+            <Section title='¿Cuanto quiero ganar este mes en mi Venta Personal?' icon={<TargetIcon size={20} />}>
+                <InputComp label='Meta de Ganancia' valor={metaGanancia} onChange={(event) => { setMetaGanancia(parseInt(event.target.value)) }} type='number' />
+                <InputComp label="Ventas Actuales del Mes (Simulacion)" valor={ventasActuales} onChange={(event) => setVentasActuales(parseInt(event.target.value))} type="number" />
+                <div className="text-center p-3 bg-blue-50 rounded-lg mb-2">
+                    <p className="text-sm text-gray-600">Estás actualmente al</p>
+                    <p className="text-2xl font-bold text-green-700">{porcentajeDisplay}%</p>
+                    <p className="text-sm text-gray-600">de tu meta</p>
                 </div>
-            ))}
-            </div>
+                <div className='text-gray-700 grid grid-cols-3'>
+                    {[{ label: "Tengo que Vender:", value: `$ ${tengoQueVender.toLocaleString()}` },
+                    { label: "Volumen en carrera de:", value: `${volumenCarrera} USD` },
+                    { label: "Ventas en el Mes", value: Math.round(totalVentasMes) }]
+                        .map((item, i) => (
+                            <div key={i} className='flex flex-col shadow-xl mb-6 bg-gray-200 rounded-sm m-2 p-2 text-center '>
+                                <span className='font-bold text-lg text-gray-800'>{item.label}</span>
+                                <span className='text-green-700 text-xl font-bold'>{item.value}</span>
+                            </div>
+                        ))}
+                </div>
             </Section>
+            <Buttom text="Guardar Configuración"
+                icon={<DownloadCloudIcon size={20} />}
+                onClick={() => showAlertApproved('¡Guardado correctamente!')}
+                className="w-full" />
         </div>
     )
 }

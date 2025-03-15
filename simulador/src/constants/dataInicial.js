@@ -1,5 +1,3 @@
-
-
 export const NAVEGACION = [
     { id: "summary", label: "Resumen", icon: 'Target' },
     { id: "simulator", label: "Simulación", icon: 'TrendingUp' },
@@ -34,22 +32,7 @@ export const MESES = [
 export const DATA_USUARIO_INICIAL = {
     nombre: "Martin Rodriguez",
     mes: "Febrero",
-    ticketPromedio: 1500,
+    ticketPromedio: 800,
     valorUSD: 1055,
     ingresoEsperado: 800000,
-};
-
-export const TASAS_DE_CIERRE = {
-    tasa1: 0.3,
-    tasa2: 0.35,
-    tasa3: 0.5,
-    tasa4: 0.5,
-    tasa5: 0.5
-};
-export const COMISIONES = {
-    comision1: 0.10,
-    comision2: 0.15,
-    comision3: 0.20,
-    comision4: 0.35,
-    comision5: 0.40
 };

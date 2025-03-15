@@ -1,7 +1,8 @@
-import { BriefcaseBusiness, ChartNoAxesCombined } from "lucide-react";
+import { BriefcaseBusiness, ChartNoAxesCombined, DownloadCloud, ShareIcon } from "lucide-react";
 import Section from "../components/Section";
 import { PRODUCTOS } from "../constants/dataInicial";
 import { calcularComision } from "../Utils/utils";
+import Buttom from "../components/Buttom";
 
 export default function ResumenScreen({
     metaGanancia,
@@ -11,7 +12,8 @@ export default function ResumenScreen({
     presentacionesPorSemana,
     nuevosProspectos,
     comisionActual,
-    nivelActual
+    nivelActual,
+    showAlertApproved
 }) {
     return (
         <div>
@@ -26,7 +28,7 @@ export default function ResumenScreen({
                     { label: "Nuevos Datos a Prospectar", value: nuevosProspectos },
                     { label: "Mínimo Presentaciones por Mes:", value: presentacionesNecesarias },
                     { label: "Minimo Presentaciones por Semana:", value: presentacionesPorSemana },
-                    { label: "Ventas Totales en el Mes", value: totalVentasMes },
+                    { label: "Ventas Totales en el Mes", value: `${Math.round(totalVentasMes)}` },
                     ].map((item, idx) => (
                         <div key={idx} className="flex justify-between py-2">
                             <div className="font-medium text-green-700 text-sm">{item.label}</div>
@@ -37,10 +39,10 @@ export default function ResumenScreen({
             </Section>
             <Section title="Productos" icon={<BriefcaseBusiness size={20} />}>
                 <div className="divide-y divide-gray-300 mx-6 my-4 p-2 shadow-lg">
-                    <div className="flex justify-between py-2 text-sm font-medium text-gray-700">
+                    <div className="flex items-center text-center justify-between py-2 text-sm font-medium text-gray-700">
                         <p>Producto</p>
                         <p>Valores</p>
-                        <p>Comisión ({nivelActual}%)</p>
+                        <p>Comisión <br />({nivelActual}%)</p>
                     </div>
                     {PRODUCTOS.slice(0, 5).map(producto => (
                         <div key={producto.id} className="flex justify-between py-2">
@@ -51,6 +53,17 @@ export default function ResumenScreen({
                     ))}
                 </div>
             </Section>
+            <div className="flex gap-5">
+                <Buttom text="Exportar PDF"
+                    icon={<DownloadCloud size={20} />}
+                    onClick={() => showAlertApproved('¡PDF Exportado!')}
+                    className="flex-1" />
+                <Buttom
+                    text="Compartir"
+                    icon={<ShareIcon size={20} />}
+                    onClick={() => showAlertApproved("Compartiendo resumen")}
+                    className="flex-1" />
+            </div>
         </div>
 
     )
