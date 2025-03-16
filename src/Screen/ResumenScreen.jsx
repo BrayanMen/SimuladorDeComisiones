@@ -17,10 +17,16 @@ export default function ResumenScreen({
 }) {
     return (
         <div>
-            <Section title='Resumen de Meta Mensual' icon={<ChartNoAxesCombined />}>
+            <Section
+                title='Resumen de Meta Mensual'
+                icon={<ChartNoAxesCombined />}>
                 <div className="flex flex-col text-center m-8 shadow-xl pb-6 bg-gray-200 ">
-                    <span className="text-2xl p-4 font-bold text-green-700 drop-shadow-xl ">${metaGanancia.toLocaleString()}</span>
-                    <span className="text-gray-600 text-md font-semibold">Meta de Ganancia Mensual</span>
+                    <p className="text-2xl p-4 font-bold text-green-700 drop-shadow-xl ">
+                        ${metaGanancia.toLocaleString()}
+                    </p>
+                    <p className="text-gray-600 text-md font-semibold">
+                        Meta de Ganancia Mensual
+                    </p>
                 </div>
                 <div className="divide-y m-8 divide-gray-300 p-4 shadow-lg mt-3">
                     {[{ label: "Tengo que Vender", value: `$ ${tengoQueVender.toLocaleString()}` },
@@ -29,10 +35,14 @@ export default function ResumenScreen({
                     { label: "Mínimo Presentaciones por Mes:", value: presentacionesNecesarias },
                     { label: "Minimo Presentaciones por Semana:", value: presentacionesPorSemana },
                     { label: "Ventas Totales en el Mes", value: `${Math.round(totalVentasMes)}` },
-                    ].map((item, idx) => (
-                        <div key={idx} className="flex justify-between py-2">
-                            <div className="font-medium text-green-700 text-sm">{item.label}</div>
-                            <div className="font-semibold text-green-900 text-sm">{item.value}</div>
+                    ].map((item, i) => (
+                        <div key={i} className="flex justify-between py-2">
+                            <p className="font-medium text-green-700 text-sm">
+                                {item.label}
+                            </p>
+                            <p className="font-semibold text-green-900 text-sm">
+                                {item.value}
+                            </p>
                         </div>
                     ))}
                 </div>

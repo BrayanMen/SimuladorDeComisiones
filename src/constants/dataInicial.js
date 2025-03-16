@@ -37,10 +37,10 @@ export const DATA_USUARIO_INICIAL = {
     ingresoEsperado: 800000,
 };
 
-export const NIVELES =[
+export const NIVELES = [
     { nivel: 10, comisiones: 0.1, tasaCierre: 0.3 },
-    { nivel: 15, comisiones: 0.15,tasaCierre: 0.35 },
-    { nivel: 20, comisiones: 0.20,tasaCierre: 0.5 },
-    { nivel: 35, comisiones: 0.35,tasaCierre: 0.5 },
-    { nivel: 40, comisiones: 0.4,tasaCierre: 0.5 }
+    { nivel: 15, comisiones: 0.15, tasaCierre: 0.35 },
+    { nivel: 20, comisiones: 0.20, tasaCierre: 0.5 },
+    { nivel: 35, comisiones: 0.35, tasaCierre: 0.5 },
+    { nivel: 40, comisiones: 0.4, tasaCierre: 0.5 }
 ]
